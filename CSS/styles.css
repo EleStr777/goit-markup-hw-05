@@ -3,10 +3,6 @@
 *::after {
   box-sizing: border-box;
 }
-/*:hover, *:focus {
-    transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}*/
 
 :root {
  /*Основные шрифты*/
@@ -103,13 +99,11 @@ body {
     display: block;
     padding-top: 32px;
     padding-bottom: 32px;
-    /*margin-right: 50px;*/
 }
 .contact-link {
     display: block;
     padding-top: 32px;
     padding-bottom: 32px;
-    /*margin-left: 50px; */  
 }
 .nav-item {
     margin-right: 50px;
@@ -190,14 +184,14 @@ transition: color var(--anim-fast);
   position: relative;   
  }
  .nav-link.current::after {
-     content: "";
-     position: absolute;
-     bottom: -1px;
-     left: 0;
-     width: 100%;
-     height: 4px;
-     border-radius: 2px;
-     background-color: var(--select-color);
+ content: "";
+ position: absolute;
+ bottom: -1px;
+ left: 0;
+ width: 100%;
+ height: 4px;
+ border-radius: 2px;
+ background-color: var(--select-color);
  }
          /*Герой*/
 
@@ -220,9 +214,9 @@ background-repeat: no-repeat;
 background-position: center;
 background-size: cover;}
 .hero-title {
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
+max-width: 700px;
+margin-left: auto;
+margin-right: auto;
 font-family: var(--main-font);
 font-weight: 900;
 font-size: 44px;
@@ -247,8 +241,9 @@ color: var(--white-text); }
     border-color: var(--select-color);
     color: var(--white-text);
     background-color: var(--select-color);
-    transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    /*transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);*/
+    transition: background-color var(--anim-fast), border-color var(--anim-fast);
 }
 .hero-btn:hover, .hero-btn:focus {
     background-color: var(--activ-btn);
@@ -390,7 +385,6 @@ color: var(--main-grey);
     text-align: center;
     letter-spacing: 0.03em;
     text-transform: uppercase;
-    
     color: var(--white-text);
 }
 .performance-img, .team-img, .project-img {
@@ -447,8 +441,9 @@ margin-bottom: 50px;
     box-sizing: border-box;
     border-radius: 4px;
     fill: var(--icon);
-    transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition: border-color var(--anim-fast), fill var(--anim-fast);
+    /*transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);*/
 }
 .clients-link:hover, .clients-link:focus {
     border-color: var(--select-color);
@@ -465,14 +460,14 @@ margin-bottom: 50px;
     display: block;
     text-decoration: none;
     font-family: var(--main-font);
-font-style: normal;
-font-weight: 700;
-font-size: 14px;
-line-height: 1,14;
-letter-spacing: 0.03em;
-text-transform: uppercase;
-color: var(--white-text);
-margin-bottom: 20px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1,14;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--white-text);
+    margin-bottom: 20px;
 }
 .footer-contacts {
     display: flex;
@@ -498,12 +493,13 @@ margin-bottom: 20px;
 .adress-location {
     color: var(--white-text)}
 .address-link {
-        color: rgba(255, 255, 255, 0.6);}
+    color: rgba(255, 255, 255, 0.6);}
 .footer-icon {
     fill: var(--white-text);
 }
 .footer-socials-link {
     background-color: rgba(255, 255, 255, 0.1);
+    transition: background-color var(--anim-fast);
 }
 .footer-socials-link:hover, .footer-socials-link:focus {
     background-color: var(--select-color);
@@ -525,26 +521,30 @@ margin-bottom: 20px;
     opacity: 0;
     pointer-events: none;
 }
+.backdrop.is-hidden .modal {
+    transform: translate(-50%, -50%);
+}
 .modal {
     display: flex;
     justify-content: flex-end;
     align-items: flex-start;
     position: absolute;
+    opacity: 1;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    height: 381px;
-    width: 328px;
+    height: 581px;
+    width: 528px;
     padding: 8px 8px;
-    background: #FFFFFF;
+    background-color: var(--main-background);
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
     border-radius: 4px;
+    transition: transform var(--anim-fast), opacity var(--anim-fast), visibility var(--anim-fast), pointer-events var(--anim-fast);
 }
 .btn-close {
     display: flex;
-    
     border-radius: 50%;
-    background: #FFFFFF;
+    background-color: var(--main-background);
     border: 1px solid rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
 }
@@ -553,20 +553,20 @@ margin-bottom: 20px;
 }
  /*Портфолио*/
  .project {
-     padding-top: 94px;
-     padding-bottom: 94px;
+    padding-top: 94px;
+    padding-bottom: 94px;
  }
  .filter-list {
-     display: flex;
-     justify-content: center;
-     margin-bottom: 50px;  
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;  
  }
  .filter-item:not(:last-child) {
     margin-right: 8px;
 }
  .filter-btn {
-     display: block;
-     cursor: pointer;
+    display: block;
+    cursor: pointer;
     font-family: var(--main-font);
     font-weight: 500;
     font-size: 16px;
@@ -644,23 +644,23 @@ margin-bottom: 20px;
     margin-left: 24px;*/
     color: var(--main-color)}
     
-    .project-overlay {
-        display: block;
-        position: relative;
-        width: 100%;
-        overflow: hidden;
-    }
-    .overlay {
-        display: inline-block;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        padding: 63px 24px;
-        background-color: rgba(33, 150, 243, 0.9);
-        opacity: 0;
-        transform: translateY(100%);
-        transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1), opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+.project-overlay {
+    display: block;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+.overlay {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 63px 24px;
+    background-color: rgba(33, 150, 243, 0.9);
+    opacity: 0;
+    transform: translateY(100%);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1), opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
         
     }
 .overlay-text {
