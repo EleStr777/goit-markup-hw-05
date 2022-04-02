@@ -517,9 +517,12 @@ margin-bottom: 20px;
     height: 100%;
     background: rgba(0, 0, 0, 0.2);
     z-index: 11;
+    opacity: 1;
+    transition: opacity var(--anim-fast);
 }
 .backdrop.is-hidden {
-    opacity: 0.5;
+    visibility: hidden;
+    opacity: 0;
     pointer-events: none;
 }
 .modal {
