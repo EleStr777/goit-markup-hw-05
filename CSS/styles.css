@@ -508,6 +508,46 @@ margin-bottom: 20px;
 .footer-socials-link:hover, .footer-socials-link:focus {
     background-color: var(--select-color);
 }
+  /*Модальное окно*/
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    z-index: 11;
+}
+.backdrop.is-hidden {
+    opacity: 0.5;
+    pointer-events: none;
+}
+.modal {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 381px;
+    width: 328px;
+    padding: 8px 8px;
+    background: #FFFFFF;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+.btn-close {
+    display: flex;
+    
+    border-radius: 50%;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+.close-icon {
+    fill: var(--bleak-text);
+}
  /*Портфолио*/
  .project {
      padding-top: 94px;
@@ -602,11 +642,13 @@ margin-bottom: 20px;
     color: var(--main-color)}
     
     .project-overlay {
+        display: block;
         position: relative;
         width: 100%;
         overflow: hidden;
     }
     .overlay {
+        display: inline-block;
         position: absolute;
         top: 0;
         left: 0;
@@ -615,8 +657,8 @@ margin-bottom: 20px;
         background-color: rgba(33, 150, 243, 0.9);
         opacity: 0;
         transform: translateY(100%);
-        transition: transform var(--anim-fast);
-        overflow: hidden;
+        transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1), opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+        
     }
 .overlay-text {
     font-family: var(--main-font);
@@ -626,9 +668,9 @@ margin-bottom: 20px;
     line-height: 1.56;
     letter-spacing: 0.03em;
     color: var(--white-text);
-    
 }
 .project-overlay:hover .overlay {
     opacity: 1;
     transform: translateY(0);
+    
 }
